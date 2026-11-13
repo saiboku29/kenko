@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>健康チェック</title>
+<meta name="apple-mobile-web-app-title" content="健康チェック">
+<meta name="application-name" content="健康チェック">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://script.googleusercontent.com">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<style>
+html,body{margin:0;height:100%;background:#f5f5f2;overflow:hidden}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+#splash{position:fixed;inset:0;z-index:2;background:#f5f5f2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:#111;transition:opacity .3s}
+#splash.hide{opacity:0;pointer-events:none}
+#splash svg{width:64px;height:64px}
+#splash small{font-size:13px;color:#6b6b6b;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<!-- 製造部 健康チェック：アプリ本体（Google Apps Script）をこのページに埋め込んで表示します -->
+<div id="splash"><svg viewBox="0 0 584 610" aria-hidden="true"><path fill="#111111" fill-rule="evenodd" d="M308.0,597.9C259.5,594.7 217.8,583.5 176.0,562.4C133.2,540.8 87.2,508.7 15.2,450.2L5.0,441.9L5.0,347.3C5.0,263.3 5.2,252.9 6.5,253.4C10.2,254.8 50.0,263.2 64.5,265.6C83.7,268.9 112.3,269.7 115.4,267.1C116.4,266.3 122.3,255.2 128.5,242.6C134.7,229.9 143.0,214.7 146.9,208.9C175.1,166.8 217.4,135.6 265.0,122.0L274.5,119.2L275.1,102.4C275.5,93.1 276.5,80.8 277.4,75.0C279.6,61.1 292.0,11.9 293.7,10.2C294.8,9.0 301.9,11.3 337.9,24.4C390.1,43.4 400.9,47.8 421.6,58.4C450.4,73.2 472.5,89.4 497.6,114.5C544.7,161.4 564.7,203.1 573.6,273.0C576.8,298.6 576.5,359.1 572.9,389.0C567.7,432.7 549.2,477.4 522.3,510.8C501.1,537.3 474.6,558.1 442.7,573.5C413.1,587.8 383.7,595.4 348.5,598.0C332.9,599.1 326.3,599.1 308.0,597.9ZM352.5,529.0C414.9,521.8 463.9,488.4 489.0,435.7C498.4,416.1 503.5,396.7 506.1,370.5C507.9,353.6 507.9,302.5 506.1,286.0C500.2,229.4 484.9,197.2 446.2,159.8C418.9,133.5 394.1,118.0 355.5,103.4C350.6,101.5 345.9,100.0 345.2,100.0C343.4,100.0 343.6,120.2 345.6,129.8C350.1,151.9 363.1,168.7 384.0,179.9C392.7,184.5 409.4,190.3 419.2,192.1C425.2,193.2 425.9,193.6 425.5,195.4C425.2,196.6 422.8,210.6 420.0,226.5C413.6,263.1 414.4,260.0 411.5,260.0C407.8,260.0 383.6,253.6 374.0,250.0C361.7,245.5 346.9,238.1 336.0,230.9C323.9,222.9 306.3,205.5 299.0,194.3C294.7,187.6 293.2,186.0 291.2,186.0C284.7,186.0 259.0,196.5 247.6,203.8C239.3,209.1 227.3,219.0 220.5,226.1C207.4,239.8 200.7,250.0 190.1,272.4C184.8,283.5 181.2,290.2 171.4,306.8C168.1,312.3 156.5,323.6 150.0,327.5C142.9,331.8 132.9,335.3 122.9,337.0C114.2,338.5 94.1,338.8 81.7,337.7L73.0,336.9L73.2,373.2L73.5,409.5L84.5,418.3C116.6,444.0 152.7,469.7 180.7,486.8C225.0,514.0 257.2,524.9 305.5,529.3C314.6,530.1 344.1,529.9 352.5,529.0ZM224.2,331.4C214.9,326.8 209.6,318.0 209.6,307.0C209.6,291.8 219.8,281.1 235.3,280.2C241.1,279.8 242.8,280.2 247.5,282.4C264.5,290.8 268.3,313.8 254.8,326.7C246.8,334.3 234.0,336.3 224.2,331.4Z"></path></svg><b>健康チェック</b><small>読み込み中…</small></div>
+<iframe id="app" title="健康チェック" allow="clipboard-write"></iframe>
+<script>
+var GAS = 'https://script.google.com/macros/s/AKfycbzokPys8QUrJEOuASxbWY1JI6exVly22NUCggVi_ZqnWc4AsXDl3szLhzpW-5nlPP9RLw/exec';
+var KEY = 'kenko_name_v1';
+function getName(){ try{ return localStorage.getItem(KEY) || ''; }catch(e){ return ''; } }
+function setName(v){ try{ localStorage.setItem(KEY, v); }catch(e){} }
+
+// 名前：①このページのURL（?n=名前） ②このスマホに保存した名前
+var q = new URLSearchParams(location.search);
+var n = q.get('n') || getName();
+if (q.get('n')) setName(q.get('n'));
+var frame = document.getElementById('app');
+frame.src = GAS + '?embed=1' + (n ? '&n=' + encodeURIComponent(n) : '');
+// アプリの準備ができたら読み込み中の表示を消す（合図が届かない場合も、読み込み後しばらくで消す）
+function hideSplash(){ document.getElementById('splash').classList.add('hide'); }
+frame.addEventListener('load', function(){ setTimeout(hideSplash, 5000); });
+setTimeout(hideSplash, 20000);
+
+// アプリで名前を選んだら、このページにも覚えさせる（ホーム画面に追加したときにも残るようURLにも付ける）
+window.addEventListener('message', function(ev){
+  var host = '';
+  try{ host = new URL(ev.origin).hostname; }catch(e){ return; }
+  if (!/(\.googleusercontent\.com|\.google\.com)$/.test(host)) return;
+  var d = ev.data;
+  if (d && d.type === 'kenko-ready'){ hideSplash(); return; }
+  if (d && d.type === 'kenko-name' && typeof d.n === 'string' && d.n){
+    setName(d.n);
+    try{ history.replaceState(null, '', '?n=' + encodeURIComponent(d.n)); }catch(e){}
+  }
+});
+</script>
+</body>
+</html>
